@@ -7,11 +7,8 @@ import {
 
 @TigrisCollection("records")
 export class Record {
-  @PrimaryKey(TigrisDataTypes.BYTE_STRING, { order: 1, autoGenerate: true })
+  @PrimaryKey(TigrisDataTypes.UUID, { order: 1, autoGenerate: true })
   _id?: string;
-
-  @Field({ elements: TigrisDataTypes.STRING })
-  $k?: string[];
 
   @Field()
   name!: string;
