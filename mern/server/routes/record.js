@@ -34,21 +34,19 @@ recordRoutes.route("/record/add").post(async function (req, res) {
     level: req.body.level,
   };
 
-  const result = await db_connect.collection("records").insertOne(myobj);
+  const result = await db_connect.getCollection("records").insertOne(myobj);
   res.json(result);
 });
 
 // This section will help you update a record by id.
 recordRoutes.route("/update/:id").post(async function (req, res) {
   let db_connect = dbo.getDb();
-  let myquery = {
-    filter: { _id: req.params.id },
-    fields: {
-      $set: {
-        name: req.body.name,
-        position: req.body.position,
-        level: req.body.level,
-      },
+  let myquery = { filter: { _id: req.params.id } };
+  let newvalues = {
+    $set: {
+      name: req.body.name,
+      position: req.body.position,
+      level: req.body.level,
     },
   };
   const result = await db_connect.getCollection("records").updateOne(myquery);
