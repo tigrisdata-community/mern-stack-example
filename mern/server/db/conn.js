@@ -1,19 +1,14 @@
-const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
+const { Tigris } = require("@tigrisdata/core");
 
-const client = new MongoClient(Db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const client = new Tigris();
 
 var _db;
 
 module.exports = {
   connectToServer: async function (callback) {
     try {
-      const db = await client.connect();
-      _db = db.db("employees");
-      console.log("Successfully connected to MongoDB.");
+      _db = await client.getDatabase();
+      console.log("Successfully connected to Tigris.");
       return callback();
     } catch (err) {
       return callback(err);
