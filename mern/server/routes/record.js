@@ -34,7 +34,7 @@ recordRoutes.route("/record/add").post(async function (req, res) {
     level: req.body.level,
   };
 
-  const result = await db_connect.getCollection("records").insertOne(myobj);
+  const result = await db_connect.collection("records").insertOne(myobj);
   res.json(result);
 });
 
