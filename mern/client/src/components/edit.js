@@ -14,7 +14,11 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:5000/record/${params.id.toString()}`);
+      const response = await fetch(
+        `http://localhost:5000/record/${encodeURIComponent(
+          params.id.toString()
+        )}`
+      );
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
@@ -53,13 +57,16 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    await fetch(`http://localhost:5000/update/${params.id}`, {
-      method: "POST",
-      body: JSON.stringify(editedPerson),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
+    await fetch(
+      `http://localhost:5000/update/${encodeURIComponent(params.id)}`,
+      {
+        method: "POST",
+        body: JSON.stringify(editedPerson),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     navigate("/");
   }
@@ -100,7 +107,9 @@ export default function Edit() {
               checked={form.level === "Intern"}
               onChange={(e) => updateForm({ level: e.target.value })}
             />
-            <label htmlFor="positionIntern" className="form-check-label">Intern</label>
+            <label htmlFor="positionIntern" className="form-check-label">
+              Intern
+            </label>
           </div>
           <div className="form-check form-check-inline">
             <input
@@ -112,7 +121,9 @@ export default function Edit() {
               checked={form.level === "Junior"}
               onChange={(e) => updateForm({ level: e.target.value })}
             />
-            <label htmlFor="positionJunior" className="form-check-label">Junior</label>
+            <label htmlFor="positionJunior" className="form-check-label">
+              Junior
+            </label>
           </div>
           <div className="form-check form-check-inline">
             <input
@@ -124,8 +135,10 @@ export default function Edit() {
               checked={form.level === "Senior"}
               onChange={(e) => updateForm({ level: e.target.value })}
             />
-            <label htmlFor="positionSenior" className="form-check-label">Senior</label>
-        </div>
+            <label htmlFor="positionSenior" className="form-check-label">
+              Senior
+            </label>
+          </div>
         </div>
         <br />
 

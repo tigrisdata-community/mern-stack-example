@@ -7,8 +7,15 @@ const Record = (props) => (
     <td>{props.record.position}</td>
     <td>{props.record.level}</td>
     <td>
-      <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
-      <button className="btn btn-link"
+      <Link
+        className="btn btn-link"
+        to={`/edit/${encodeURIComponent(props.record._id)}`}
+      >
+        Edit
+      </Link>{" "}
+      |
+      <button
+        className="btn btn-link"
         onClick={() => {
           props.deleteRecord(props.record._id);
         }}
@@ -39,13 +46,13 @@ export default function RecordList() {
 
     getRecords();
 
-    return; 
+    return;
   }, [records.length]);
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
-      method: "DELETE"
+    await fetch(`http://localhost:5000/${encodeURIComponent(id)}`, {
+      method: "DELETE",
     });
 
     const newRecords = records.filter((el) => el._id !== id);
