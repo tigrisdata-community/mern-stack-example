@@ -1,6 +1,9 @@
 import { Tigris } from "@tigrisdata/core";
 import { Record } from "../db/record";
 
+import dotenv from "dotenv";
+dotenv.config({ path: "./config.env" });
+
 async function main() {
   // setup client
   const tigrisClient = new Tigris();
