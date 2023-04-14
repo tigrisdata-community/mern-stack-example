@@ -4,16 +4,19 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "setup": "npx ts-node scripts/setup.ts",
+    "prestart": "npm run setup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "dependencies": {
+    "@tigrisdata/core": "^1.0.0-beta.44",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongodb": "5.2",
-    "mongoose": "^5.12.4"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
   }
 }
