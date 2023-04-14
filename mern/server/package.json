@@ -6,7 +6,6 @@
   "scripts": {
     "setup": "npx ts-node scripts/setup.ts",
     "prestart": "npm run setup",
-    "prebuild": "npm run setup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
