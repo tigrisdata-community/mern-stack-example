@@ -57,6 +57,16 @@ npm install
 npm start
 ```
 
+## Tests
+
+The MERN code base came with some tests that don't appear to run by default when
+running `npm test`. However, you can manually run the existing two tests by
+starting the client and server (as above) and then running:
+
+```sh
+node_modules/.bin/cypress run cypress/integration/endToEnd.spec.js
+```
+
 ## Get involved
 
 - 💻 Contribute to [Tigris](https://github.com/tigrisdata/tigris), the open
