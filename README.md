@@ -6,6 +6,7 @@ Mern Stack code for the [Mern Tutorial](https://www.mongodb.com/languages/mern-s
 ## How To Run
 Create an Atlas URI connection parameter in `mern/server/config.env` with your Atlas URI:
 ```
+DATABASE_NAME=mern-to-tern
 TIGRIS_CLIENT_ID={TIGRIS_CLIENT_ID}
 TIGRIS_CLIENT_SECRET={TIGRIS_CLIENT_SECRET}
 TIGRIS_PROJECT=mern-to-tern
